@@ -45,9 +45,24 @@ class BooksApp extends React.Component {
               </div>
               <div className="list-books-content">
                 <div>
-                  <Shelf></Shelf>
-                  <Shelf></Shelf>
-                  <Shelf></Shelf>
+                  <Shelf title='Currently Reading' books={
+                    [
+                      { title: 'Tom sawyer 1', author: 'osamam', cover: 'http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api' },
+                      { title: 'Moby Dick 1', author: 'osama' }
+                    ]
+                  }></Shelf>
+                  <Shelf title='Want to Read' books={
+                    [
+                      { title: 'Tom sawyer 2', author: 'osamam' },
+                      { title: 'Moby Dick 2', author: 'osama' }
+                    ]
+                  }></Shelf>
+                  <Shelf title='Read' books={
+                    [
+                      { title: 'Tom sawyer 3', author: 'osamam' },
+                      { title: 'Moby Dick 3', author: 'osama' }
+                    ]
+                  }></Shelf>
                 </div>
               </div>
               <div className="open-search">
