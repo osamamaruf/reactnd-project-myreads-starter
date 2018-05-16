@@ -9,7 +9,7 @@ class Book extends React.Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: 'url('+cover+')' }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${cover}` }}></div>
                     <ShelfSelector></ShelfSelector>
                 </div>
                 <div className="book-title">{title}</div>
