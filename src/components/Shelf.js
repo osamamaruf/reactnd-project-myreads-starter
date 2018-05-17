@@ -11,11 +11,18 @@ class Shelf extends React.Component {
                 <h2 className="bookshelf-title">{title}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
-                        {books.filter((book)=>( book.shelf===shelf)).map((book) => (
-                            <li key={book.title}>
-                                <Book title={book.title} author={book.author} smallThumbnail={book.imageLinks.smallThumbnail}></Book>
-                            </li>
-                        ))
+                        {books
+                            .filter((book) => (book.shelf === shelf))
+                            .map((book) => (
+                                <li key={book.title}>
+                                    <Book
+                                        title={book.title}
+                                        author={book.author}
+                                        smallThumbnail={book.imageLinks.smallThumbnail}
+                                        shelf={book.shelf}>
+                                    </Book>
+                                </li>
+                            ))
 
                         }
                     </ol>
