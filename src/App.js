@@ -1,5 +1,5 @@
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Shelf from './components/Shelf'
 
@@ -11,7 +11,17 @@ class BooksApp extends React.Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    showSearchPage: false
+    showSearchPage: false,
+    books: []
+  }
+
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState(() => ({
+        books
+      }));
+    })
   }
 
   render() {
@@ -45,24 +55,9 @@ class BooksApp extends React.Component {
               </div>
               <div className="list-books-content">
                 <div>
-                  <Shelf title='Currently Reading' books={
-                    [
-                      { title: 'Tom sawyer 1', author: 'osamam', cover: 'http://books.google.com/books/content?id=32haAAAAMAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72yckZ5f5bDFVIf7BGPbjA0KYYtlQ__nWB-hI_YZmZ-fScYwFy4O_fWOcPwf-pgv3pPQNJP_sT5J_xOUciD8WaKmevh1rUR-1jk7g1aCD_KeJaOpjVu0cm_11BBIUXdxbFkVMdi&source=gbs_api' },
-                      { title: 'Moby Dick 1', author: 'osama' }
-                    ]
-                  }></Shelf>
-                  <Shelf title='Want to Read' books={
-                    [
-                      { title: 'Tom sawyer 2', author: 'osamam' },
-                      { title: 'Moby Dick 2', author: 'osama' }
-                    ]
-                  }></Shelf>
-                  <Shelf title='Read' books={
-                    [
-                      { title: 'Tom sawyer 3', author: 'osamam' },
-                      { title: 'Moby Dick 3', author: 'osama' }
-                    ]
-                  }></Shelf>
+                  <Shelf title='Currently Reading' shelf='currentlyReading' books={this.state.books}></Shelf>
+                  <Shelf title='Want to Read' shelf='wantToRead' books={this.state.books} ></Shelf>
+                  <Shelf title='Read' shelf='read' books={this.state.books}></Shelf>
                 </div>
               </div>
               <div className="open-search">
