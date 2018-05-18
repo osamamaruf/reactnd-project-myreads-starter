@@ -6,6 +6,7 @@ class Shelf extends React.Component {
         const title = this.props.title;
         const shelf = this.props.shelf;
         const books = this.props.books;
+        const onShelfChange = this.props.onShelfChange;
         return (
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{title}</h2>
@@ -19,7 +20,9 @@ class Shelf extends React.Component {
                                         title={book.title}
                                         author={book.author}
                                         smallThumbnail={book.imageLinks.smallThumbnail}
-                                        shelf={book.shelf}>
+                                        shelf={book.shelf}
+                                        id={book.id}
+                                        onShelfChange={onShelfChange}>
                                     </Book>
                                 </li>
                             ))

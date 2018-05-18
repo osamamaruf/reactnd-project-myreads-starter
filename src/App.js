@@ -24,6 +24,19 @@ class BooksApp extends React.Component {
     })
   }
 
+  changeShelf = (e, id) => {
+    let shelf = e.target.value;
+    this.setState((currentState) => ({
+      books: currentState.books.map((b) => {
+        if (b.id === id) {
+          b.shelf = shelf;
+          BooksAPI.update(b, shelf);
+        }
+        return b;
+      })
+    }));
+  }
+
   render() {
     return (
       <div className="app">
@@ -55,9 +68,14 @@ class BooksApp extends React.Component {
               </div>
               <div className="list-books-content">
                 <div>
-                  <Shelf title='Currently Reading' shelf='currentlyReading' books={this.state.books}></Shelf>
-                  <Shelf title='Want to Read' shelf='wantToRead' books={this.state.books} ></Shelf>
-                  <Shelf title='Read' shelf='read' books={this.state.books}></Shelf>
+                  <Shelf
+                    title='Currently Reading'
+                    shelf='currentlyReading'
+                    books={this.state.books}
+                    onShelfChange={this.changeShelf}>
+                  </Shelf>
+                  <Shelf title='Want to Read' shelf='wantToRead' books={this.state.books} onShelfChange={this.changeShelf}></Shelf>
+                  <Shelf title='Read' shelf='read' books={this.state.books} onShelfChange={this.changeShelf}></Shelf>
                 </div>
               </div>
               <div className="open-search">
