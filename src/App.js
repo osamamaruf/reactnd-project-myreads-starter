@@ -3,6 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Shelf from './components/Shelf'
 import SearchBar from './components/SearchBar'
+import SearchGrid from './components/SearchGrid'
 
 class BooksApp extends React.Component {
   state = {
@@ -44,9 +45,7 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           <div className="search-books">
             <SearchBar></SearchBar>
-            <div className="search-books-results">
-              <ol className="books-grid"></ol>
-            </div>
+            <SearchGrid></SearchGrid>
           </div>
         ) : (
             <div className="list-books">
