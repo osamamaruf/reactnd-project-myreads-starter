@@ -2,8 +2,8 @@ import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Shelf from './components/Shelf'
-import SearchBar from './components/SearchBar'
-import SearchGrid from './components/SearchGrid'
+import Search from './components/Search'
+
 
 class BooksApp extends React.Component {
   state = {
@@ -43,10 +43,7 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <div className="search-books">
-            <SearchBar></SearchBar>
-            <SearchGrid></SearchGrid>
-          </div>
+          <Search></Search>
         ) : (
             <div className="list-books">
               <div className="list-books-title">
