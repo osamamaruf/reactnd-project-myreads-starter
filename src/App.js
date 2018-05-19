@@ -39,11 +39,15 @@ class BooksApp extends React.Component {
     }));
   }
 
+  navigateToHome() {
+    this.setState({ showSearchPage: false });
+  }
+
   render() {
     return (
       <div className="app">
         {this.state.showSearchPage ? (
-          <Search></Search>
+          <Search navigateToHome={this.navigateToHome}></Search>
         ) : (
             <div className="list-books">
               <div className="list-books-title">

@@ -50,10 +50,10 @@ class Search extends React.Component {
 
     render() {
         const { query, books } = this.state;
-
+        const { navigateToHome } = this.props;
         return (
             <div className="search-books" >
-                <SearchBar query={query} updateQuery={this.updateQuery}></SearchBar>
+                <SearchBar navigateToHome={navigateToHome} query={query} updateQuery={this.updateQuery}></SearchBar>
                 <SearchGrid books={books}></SearchGrid>
             </div>
         );
