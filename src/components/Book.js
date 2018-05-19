@@ -3,8 +3,8 @@ import ShelfSelector from './ShelfSelector'
 
 class Book extends React.Component {
     render() {
-        const onShelfChange = this.props.onShelfChange;
-        const book = this.props.book;
+        const { book, onShelfChange } = this.props;
+
         return (
             <div className="book">
                 <div className="book-top">

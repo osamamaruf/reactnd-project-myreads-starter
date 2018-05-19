@@ -5,8 +5,8 @@ import { DebounceInput } from 'react-debounce-input'
 class SearchBar extends React.Component {
 
     render() {
-        const query = this.props.query;
-        const updateQuery = this.props.updateQuery;
+        const { query, updateQuery } = this.props;
+
         return (
             <div className="search-books-bar">
                 <Link className="close-search" to='/'>Close</Link>

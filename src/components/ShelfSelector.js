@@ -2,8 +2,8 @@ import React from 'react'
 
 class ShelfSelector extends React.Component {
     render() {
-        const book = this.props.book;
-        const onShelfChange = this.props.onShelfChange;
+        const { book, onShelfChange } = this.props;
+
         return (
             <div className="book-shelf-changer">
                 <select value={book.shelf} onChange={(e) => onShelfChange(e, book)}>
