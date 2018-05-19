@@ -1,14 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class SearchBar extends React.Component {
 
     render() {
         const query = this.props.query;
         const updateQuery = this.props.updateQuery;
-        const navigateToHome = this.props.navigateToHome;
         return (
             <div className="search-books-bar">
-                <a className="close-search" href='/' onClick={() => { navigateToHome(); }}>Close</a>
+                <Link className="close-search" to='/'>Close</Link>
                 <div className="search-books-input-wrapper">
                     {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
