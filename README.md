@@ -15,7 +15,7 @@ Additionaly the user can search an online repository to add books to the library
 * Project has been bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
 
 
-##Installation
+## Installation
 
 * project dependencies can be installed with `npm install`
 * to start the development server run `npm start`
