@@ -3,21 +3,18 @@ import ShelfSelector from './ShelfSelector'
 
 class Book extends React.Component {
     render() {
-        const title = this.props.title;
-        const authors = this.props.authors;
-        const smallThumbnail = this.props.smallThumbnail;
-        const shelf = this.props.shelf;
         const onShelfChange = this.props.onShelfChange;
-        const id = this.props.id;
+
+        const book = this.props.book;
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${smallThumbnail}` }}></div>
-                    <ShelfSelector id={id} shelf={shelf} onShelfChange={onShelfChange}></ShelfSelector>
+                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks.smallThumbnail}` }}></div>
+                    <ShelfSelector id={book.id} shelf={book.shelf} onShelfChange={onShelfChange}></ShelfSelector>
                 </div>
-                <div className="book-title">{title}</div>
-                {authors.length > 0 && (authors.map((author) => (
-                    <div key={id + author} className="book-authors">{author}</div>
+                <div className="book-title">{book.title}</div>
+                {book.authors.length > 0 && (book.authors.map((author) => (
+                    <div key={book.id + author} className="book-authors">{author}</div>
                 ))
                 )}
             </div>
