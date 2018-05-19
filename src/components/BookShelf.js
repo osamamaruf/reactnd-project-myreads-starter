@@ -18,8 +18,17 @@ class BookShelf extends React.Component {
                             books={books}
                             onShelfChange={onShelfChange}>
                         </Shelf>
-                        <Shelf title='Want to Read' shelf='wantToRead' books={books} onShelfChange={onShelfChange}></Shelf>
-                        <Shelf title='Read' shelf='read' books={books} onShelfChange={onShelfChange}></Shelf>
+                        <Shelf
+                            title='Want to Read'
+                            shelf='wantToRead' books={books}
+                            onShelfChange={onShelfChange}>
+                        </Shelf>
+                        <Shelf
+                            title='Read'
+                            shelf='read'
+                            books={books}
+                            onShelfChange={onShelfChange}>
+                        </Shelf>
                     </div>
                 </div>
                 <div className="open-search">

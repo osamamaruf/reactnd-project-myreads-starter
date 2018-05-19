@@ -7,8 +7,8 @@ class SearchGrid extends React.Component {
         return (
             <div className="search-books-results">
                 <ol className="books-grid">
-                    {books
-                        .map((book) => (
+                    {
+                        books.map((book) => (
                             <li key={book.id}>
                                 <Book
                                     book={book}
