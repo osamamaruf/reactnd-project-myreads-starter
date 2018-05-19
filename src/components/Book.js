@@ -9,14 +9,16 @@ class Book extends React.Component {
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks.smallThumbnail}` }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks ? book.imageLinks.smallThumbnail : undefined}` }}></div>
                     <ShelfSelector id={book.id} shelf={book.shelf} onShelfChange={onShelfChange}></ShelfSelector>
                 </div>
                 <div className="book-title">{book.title}</div>
-                {book.authors.length > 0 && (book.authors.map((author) => (
-                    <div key={book.id + author} className="book-authors">{author}</div>
-                ))
-                )}
+                {
+                    (book.authors) &&
+                    (book.authors.length > 0) && (book.authors.map((author) => (
+                        <div key={book.id + author} className="book-authors">{author}</div>
+                    )))
+                }
             </div>
         );
     };

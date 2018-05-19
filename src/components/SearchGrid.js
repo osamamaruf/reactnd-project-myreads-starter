@@ -11,11 +11,7 @@ class SearchGrid extends React.Component {
                         .map((book) => (
                             <li key={book.id}>
                                 <Book
-                                    title={book.title}
-                                    authors={book.authors ? book.authors : []}
-                                    smallThumbnail={book.imageLinks ? book.imageLinks.smallThumbnail : undefined}
-                                    shelf={book.shelf}
-                                    id={book.id}
+                                    book={book}
                                     onShelfChange={onShelfChange}>
                                 </Book>
                             </li>
