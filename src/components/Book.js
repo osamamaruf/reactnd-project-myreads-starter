@@ -4,13 +4,12 @@ import ShelfSelector from './ShelfSelector'
 class Book extends React.Component {
     render() {
         const onShelfChange = this.props.onShelfChange;
-
         const book = this.props.book;
         return (
             <div className="book">
                 <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${book.imageLinks ? book.imageLinks.smallThumbnail : undefined}` }}></div>
-                    <ShelfSelector id={book.id} shelf={book.shelf} onShelfChange={onShelfChange}></ShelfSelector>
+                    <ShelfSelector book={book} onShelfChange={onShelfChange}></ShelfSelector>
                 </div>
                 <div className="book-title">{book.title}</div>
                 {
