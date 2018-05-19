@@ -15,7 +15,7 @@ class Book extends React.Component {
                 {
                     (book.authors) &&
                     (book.authors.length > 0) && (book.authors.map((author) => (
-                        <div key={book.id + author} className="book-authors">{author}</div>
+                        <div key={author} className="book-authors">{author}</div>
                     )))
                 }
             </div>
