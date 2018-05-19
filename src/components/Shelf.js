@@ -18,8 +18,8 @@ class Shelf extends React.Component {
                                 <li key={book.title}>
                                     <Book
                                         title={book.title}
-                                        author={book.author}
-                                        smallThumbnail={book.imageLinks.smallThumbnail}
+                                        authors={book.authors ? book.authors : []}
+                                        smallThumbnail={book.imageLinks ? book.imageLinks.smallThumbnail : undefined}
                                         shelf={book.shelf}
                                         id={book.id}
                                         onShelfChange={onShelfChange}>
