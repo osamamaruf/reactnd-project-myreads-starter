@@ -14,12 +14,12 @@ class Search extends React.Component {
             () => ({
                 query: query
             }),
-            () => { this.fetchSearchedBooks(this.state.query) }
+            () => { this.fetchSearchedBooks(this.state.query, this.props.shelvedBooks) }
         );
 
     }
 
-    fetchSearchedBooks(query) {
+    fetchSearchedBooks(query, shelvedBooks) {
         query === '' ?
             this.setState(() => ({
                 books: []
@@ -35,8 +35,15 @@ class Search extends React.Component {
                     })
                 ))
                 .then((books) => {
+                    let displayBooks = books.map((b) => {
+                        let commonBook = shelvedBooks.filter((sb) => sb.id === b.id);
+                        if (commonBook.length > 0) {
+                            b.shelf = commonBook[0].shelf;
+                        }
+                        return b;
+                    });
                     this.setState(() => ({
-                        books
+                        books:displayBooks
                     }))
 
                 })
