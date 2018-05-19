@@ -3,7 +3,7 @@ import Book from './Book'
 
 class SearchGrid extends React.Component {
     render() {
-        const books = this.props.books;
+        const { books, onShelfChange } = this.props;
         return (
             <div className="search-books-results">
                 <ol className="books-grid">
@@ -15,7 +15,8 @@ class SearchGrid extends React.Component {
                                     authors={book.authors ? book.authors : []}
                                     smallThumbnail={book.imageLinks ? book.imageLinks.smallThumbnail : undefined}
                                     shelf={book.shelf}
-                                    id={book.id}                               >
+                                    id={book.id}
+                                    onShelfChange={onShelfChange}>
                                 </Book>
                             </li>
                         ))
