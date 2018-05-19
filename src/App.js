@@ -1,7 +1,7 @@
 import React from 'react'
+import BookShelf from './components/BookShelf'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import Shelf from './components/Shelf'
 import Search from './components/Search'
 
 
@@ -43,32 +43,19 @@ class BooksApp extends React.Component {
     this.setState({ showSearchPage: false });
   }
 
+  navigateToSearch() {
+    this.setState({ showSearchPage: true });
+  }
+
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <Search navigateToHome={this.navigateToHome}></Search>
-        ) : (
-            <div className="list-books">
-              <div className="list-books-title">
-                <h1>MyReads</h1>
-              </div>
-              <div className="list-books-content">
-                <div>
-                  <Shelf
-                    title='Currently Reading'
-                    shelf='currentlyReading'
-                    books={this.state.books}
-                    onShelfChange={this.changeShelf}>
-                  </Shelf>
-                  <Shelf title='Want to Read' shelf='wantToRead' books={this.state.books} onShelfChange={this.changeShelf}></Shelf>
-                  <Shelf title='Read' shelf='read' books={this.state.books} onShelfChange={this.changeShelf}></Shelf>
-                </div>
-              </div>
-              <div className="open-search">
-                <a onClick={() => this.setState({ showSearchPage: true })} href='#search'>Add a book</a>
-              </div>
-            </div>
+        {this.state.showSearchPage ?
+          (
+            <Search navigateToHome={this.navigateToHome.bind(this)}></Search>
+          ) :
+          (
+            <BookShelf navigateToSearch={this.navigateToSearch.bind(this)} books={this.state.books} onShelfChange={this.changeShelf}></BookShelf>
           )}
       </div>
     )
