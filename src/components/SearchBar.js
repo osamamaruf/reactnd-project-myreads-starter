@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
 
                     <DebounceInput
                         minLength={0}
-                        debounceTimeout={200}
+                        debounceTimeout={300}
                         type="text"
                         placeholder="Search by title or author"
                         value={query}
