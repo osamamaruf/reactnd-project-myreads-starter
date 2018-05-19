@@ -43,10 +43,6 @@ class BooksApp extends React.Component {
     this.setState({ showSearchPage: false });
   }
 
-  navigateToSearch() {
-    this.setState({ showSearchPage: true });
-  }
-
   render() {
     return (
       <div className="app">
@@ -55,7 +51,7 @@ class BooksApp extends React.Component {
             <Search navigateToHome={this.navigateToHome.bind(this)}></Search>
           ) :
           (
-            <BookShelf navigateToSearch={this.navigateToSearch.bind(this)} books={this.state.books} onShelfChange={this.changeShelf}></BookShelf>
+            <BookShelf books={this.state.books} onShelfChange={this.changeShelf}></BookShelf>
           )}
       </div>
     )
